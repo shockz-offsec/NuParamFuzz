@@ -53,10 +53,11 @@ Designed for **security researchers, bug bounty hunters, and web developers**, `
 ---
 
 ## Screenshot
-<img width="1067" height="559" alt="NuParamFuzz Screenshot" src="" />
+<img width="838" height="487" alt="NuParamFuzz Screenshot" src="https://raw.githubusercontent.com/shockz-offsec/NuParamFuzz/refs/heads/main/Assets/help.png" />
 
 ## Output
-<img width="1733" height="901" alt="NuParamFuzz Output" src="" />
+
+<img width="1733" height="901" alt="NuParamFuzz Output" src="https://raw.githubusercontent.com/shockz-offsec/NuParamFuzz/refs/heads/main/Assets/output.gif" />
 
 ---
 
