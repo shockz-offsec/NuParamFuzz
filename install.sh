@@ -7,5 +7,3 @@ sudo cp NuParamFuzz.sh /usr/bin/npf
 sudo chmod +x /usr/bin/npf
 
 echo "NuParamFuzz has been installed successfully! Now Enter the command 'npf' to run the tool."
-
-cd .. && rm -r NuParamFuzz

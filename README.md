@@ -93,7 +93,7 @@ Options:
 ## Installation:
 
 ```bash
-git clone https://github.com/shockz-offsec/NuParamFuzz.git && cd NuParamFuzz && sudo chmod +x install.sh && ./install.sh && (command -v npf &> /dev/null && npf -h || echo "Installation failed: Command 'npf' not found.") && cd ..
+git clone https://github.com/shockz-offsec/NuParamFuzz.git && cd NuParamFuzz && sudo chmod +x install.sh && ./install.sh && (command -v npf &> /dev/null && npf -h || echo "Installation failed: Command 'npf' not found.") && cd .. && rm -r NuParamFuzz
 ```
 
 ## Examples:
