@@ -164,6 +164,8 @@ check_prerequisite "waybackurls" "go install github.com/tomnomnom/waybackurls@la
 check_prerequisite "gauplus" "go install github.com/bp0lr/gauplus@latest"
 check_prerequisite "hakrawler" "go install github.com/hakluke/hakrawler@latest"
 check_prerequisite "paramx" "go install github.com/cyinnove/paramx/cmd/paramx@latest"
+check_prerequisite "gospider" "go install github.com/jaeles-project/gospider@latest"
+check_prerequisite "cariddi" "go install -v github.com/edoardottt/cariddi/cmd/cariddi@latest"
 clone_repo "https://github.com/0xKayala/ParamSpider" "$HOME_DIR/ParamSpider"
 clone_repo "https://github.com/projectdiscovery/nuclei-templates.git" "$HOME_DIR/nuclei-templates"
 
@@ -219,8 +221,8 @@ collect_urls() {
 
     log "INFO" "Starting URL collection for $target..."
 
-    # -------------------------
-    # ParamSpider
+    #-------------------------
+    ParamSpider
     echo -e "${GREEN}Collecting URLs for $target...${RESET} using ParamSpider"
     timeout "$TIMEOUT_DURATION" python3 "$HOME_DIR/ParamSpider/paramspider.py" -d "$target" \
         --exclude "$EXCLUDED_EXTENSIONS" --level high --quiet -o "$output_file.tmp" >/dev/null 2>&1
@@ -270,6 +272,21 @@ collect_urls() {
     else
         log "INFO" "Katana returned no URLs for $target or timed out."
     fi
+    
+    # -------------------------
+    # GoSpider
+    echo -e "${GREEN}Collecting URLs for $target...${RESET} using Gospider"
+    if ! timeout "$TIMEOUT_DURATION" gospider -s "$target" --js -t 10 -d 3 --sitemap --robots -w -q -r | grep -Eo 'https?://[^[:space:]]+' >> "$output_file" 2>/dev/null; then
+        log "INFO" "Gospider returned no results for $target or timed out."
+    fi
+
+    # -------------------------
+    # Cariddi
+    echo -e "${GREEN}Collecting URLs for $target...${RESET} using Cariddi"
+    if ! timeout "$TIMEOUT_DURATION" bash -c "echo \"$target\" | cariddi -c 20 -t 5 -rua -s" >> "$output_file" 2>/dev/null; then
+        log "INFO" "Cariddi returned no results for $target or timed out."
+    fi
+
 }
 
 
