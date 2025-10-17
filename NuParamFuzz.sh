@@ -222,7 +222,7 @@ collect_urls() {
     log "INFO" "Starting URL collection for $target..."
 
     #-------------------------
-    ParamSpider
+    #ParamSpider
     echo -e "${GREEN}Collecting URLs for $target...${RESET} using ParamSpider"
     timeout "$TIMEOUT_DURATION" python3 "$HOME_DIR/ParamSpider/paramspider.py" -d "$target" \
         --exclude "$EXCLUDED_EXTENSIONS" --level high --quiet -o "$output_file.tmp" >/dev/null 2>&1
