@@ -4,7 +4,7 @@
 </h1>
 
 ## Overview
-`NuParamFuzz` is the **next-generation evolution of NucleiFuzzer**, built to provide a more **efficient, precise, and exhaustive web vulnerability scanning workflow**. It integrates `ParamSpider`, `Waybackurls`, `Katana`, `Gauplus`, and `Hakrawler` to collect URLs and parameters, while performing **intelligent filtering, deduplication, and validation** using `uro` and `paramx`. Leveraging `Nuclei` with advanced `fuzzing-templates`, it identifies vulnerabilities with **greater depth**, particularly in parameter fuzzing.
+`NuParamFuzz` is the **next-generation evolution of NucleiFuzzer**, built to provide a more **efficient, precise, and exhaustive web vulnerability scanning workflow**. It integrates `ParamSpider`, `Waybackurls`, `Katana`, `Gauplus`, `Cariddi` and `Hakrawler` to collect URLs and parameters, while performing **intelligent filtering, deduplication, and validation** using `uro` and `paramx`. Leveraging `Nuclei` with advanced `fuzzing-templates`, it identifies vulnerabilities with **greater depth**, particularly in parameter fuzzing.
 
 Designed for **security researchers, bug bounty hunters, and web developers**, `NuParamFuzz` introduces **per-target output organization, HTTPS prioritization, subdomain filtering, timeout-controlled URL collection**, and the `-all` flag for exhaustive parameter fuzzing. These features ensure faster scans, higher accuracy, and actionable results compared to the original NucleiFuzzer.
 
@@ -13,7 +13,7 @@ Designed for **security researchers, bug bounty hunters, and web developers**, `
 ## Key Improvements Over NucleiFuzzer
 
 1. **Exhaustive Parameter Fuzzing with Flexibility**: By default, NuParamFuzz uses `paramx` to filter and fuzz only **vulnerable-like parameters**, reducing noise and providing a more focused input to Nuclei. When the `-all` flag is enabled, it performs **full parameter fuzzing**, testing **all discovered parameters**, including hidden or less obvious ones, for maximum coverage.
-2. **Cohesive URL Collection Pipeline**: Combines `ParamSpider`, `Waybackurls`, `Katana`, `Gauplus`, and `Hakrawler` with timeout-controlled execution to reduce hangs and redundant scans.  
+2. **Cohesive URL Collection Pipeline**: Combines `ParamSpider`, `Waybackurls`, `Katana`, `Gauplus`, `Cariddi` and `Hakrawler` with timeout-controlled execution to reduce hangs and redundant scans.  
 3. **Enhanced Validation & Deduplication**: URLs are filtered and deduplicated using both `uro` and `paramx`, ensuring only actionable endpoints reach Nuclei.  
 4. **HTTPS Prioritization & Subdomain Filtering**: Automatically prefers secure URLs and retains only those matching the target domain or subdomains.  
 5. **Timeout-Controlled Discovery**: Each collection tool has configurable timeouts to improve efficiency and prevent delays on slow targets.  
@@ -42,7 +42,8 @@ Designed for **security researchers, bug bounty hunters, and web developers**, `
 - [Waybackurls](https://github.com/tomnomnom/waybackurls)  
 - [Gauplus](https://github.com/bp0lr/gauplus)  
 - [Hakrawler](https://github.com/hakluke/hakrawler)  
-- [Katana](https://github.com/projectdiscovery/katana)  
+- [Katana](https://github.com/projectdiscovery/katana)
+- [Cariddi](https://github.com/edoardottt/cariddi)
 - [httpx](https://github.com/projectdiscovery/httpx)  
 - [uro](https://github.com/s0md3v/uro)
 - [paramx](https://github.com/cyinnove/paramx)
